@@ -1,6 +1,7 @@
 package com.example.appearthqueke;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
@@ -20,32 +21,34 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
         binding.eqRecycler.setLayoutManager(new LinearLayoutManager(this));
-        ArrayList<Earthquake> eqlist = new ArrayList<>();
-        eqlist.add(new Earthquake("001", "Carci - Tulcan",+5.0, 12082022, 1005, 154.0));
-        eqlist.add(new Earthquake("002", "Cuenca - Azuay",+5.0, 12082022, 1005, 154.0));
-        eqlist.add(new Earthquake("003", "Quito - Pichincha",+5.0, 12082022, 1005, 154.0));
-        eqlist.add(new Earthquake("004", "Manta - Manabi",+5.0, 12082022, 1005, 154.0));
+
 
         EqAdapter adapter =  new EqAdapter();
 
         //adapter.setOnItemClicListener(earthquake ->  Toast.makeText(MainActivity.this, earthquake.getPlace(), Toast.LENGTH_SHORT).show());
        adapter.setOnItemClicListener(earthquake->{
-           //String magnitud =
-           /*for (int i = 0; i < eqlist.size(); i++)
-            abrirmonitor(eqlist.get(i).getId(), eqlist.get(i).getPlace(), eqlist.get(i).getMagnitud(),eqlist.get(i).getTime(),
-                            eqlist.get(i).getLatitude(), eqlist.get(i).getLongitude());*/
+
            abrirmonitor(earthquake.getId(), earthquake.getPlace(),earthquake.getMagnitud(),earthquake.getTime(),earthquake.getLatitude(),earthquake.getLongitude());
        });
 
         binding.eqRecycler.setAdapter(adapter);
-        adapter.submitList(eqlist);
 
-        if (eqlist.isEmpty()){
-            binding.emptyView.setVisibility(View.VISIBLE);
-        }else{
-            binding.emptyView.setVisibility(View.GONE);
-        }
+        viewModel.getEqList().observe(this,eqList->{
+                adapter.submitList(eqList);
+
+            if (eqList.isEmpty()){
+                binding.emptyView.setVisibility(View.VISIBLE);
+            }else{
+                binding.emptyView.setVisibility(View.GONE);
+            }
+
+
+    });
+        viewModel.getEarthquakes();
+
 
     }
 
