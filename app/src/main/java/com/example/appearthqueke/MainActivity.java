@@ -1,10 +1,12 @@
 package com.example.appearthqueke;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -12,9 +14,11 @@ import android.widget.Toast;
 import com.example.appearthqueke.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         EqAdapter adapter =  new EqAdapter();
 
-        //adapter.setOnItemClicListener(earthquake ->  Toast.makeText(MainActivity.this, earthquake.getPlace(), Toast.LENGTH_SHORT).show());
+        //adapter.setOnItemClicListener(earthquake ->  Toxast.makeText(MainActivity.this, earthquake.getPlace(), Toast.LENGTH_SHORT).show());
        adapter.setOnItemClicListener(earthquake->{
 
            abrirmonitor(earthquake.getId(), earthquake.getPlace(),earthquake.getMagnitud(),earthquake.getTime(),earthquake.getLatitude(),earthquake.getLongitude());
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.getEqList().observe(this,eqList->{
                 adapter.submitList(eqList);
+            Earthquake eqq=eqList.stream().max(Comparator.comparingDouble(Earthquake::getMagnitud)).get();
+            binding.setEarthquakeDividido(eqq);
 
             if (eqList.isEmpty()){
                 binding.emptyView.setVisibility(View.VISIBLE);

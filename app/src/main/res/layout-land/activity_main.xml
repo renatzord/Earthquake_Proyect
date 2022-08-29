@@ -4,12 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+        name="EarthquakeDividido"
+        type="com.example.appearthqueke.Earthquake" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+android:layout_weight="0.5"
         tools:context=".MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -33,4 +41,154 @@
             />
 
     </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:id="@+id/jlb_tit2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#4CAF50"
+                android:padding="5dp"
+                android:text="Sismo Destacado"
+                android:textAlignment="center"
+                android:textColor="#FDFDFD"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/magnitud_Monitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="@{String.valueOf(EarthquakeDividido.magnitud)}"
+                android:textColor="@color/teal_200"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.105"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="0.0" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="76dp"
+                android:layout_marginEnd="144dp"
+                android:text="Richter"
+                android:textColor="@color/purple_700"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.364"
+                app:layout_constraintStart_toEndOf="@+id/magnitud_Monitor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="44dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="32dp"
+                android:background="#120F0F"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/magnitud_Monitor"
+                app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+            <TextView
+                android:id="@+id/Latitud_Monitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="monospace"
+                android:text="@{String.valueOf(EarthquakeDividido.latitude)}"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/longitud_Monitor"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/magnitud_Monitor"
+                app:layout_constraintVertical_bias="0.53"
+                tools:text="000000000" />
+
+            <TextView
+                android:id="@+id/longitud_Monitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="152dp"
+                android:fontFamily="monospace"
+                android:text="@{String.valueOf(EarthquakeDividido.longitude)}"
+                android:textColor="@color/teal_700"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="000000000" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="32dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="12dp"
+                android:background="#120909"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:srcCompat="@android:drawable/ic_dialog_map" />
+
+            <TextView
+                android:id="@+id/place_Monitor"
+                android:layout_width="261dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="monospace"
+                android:text="@{String.valueOf(EarthquakeDividido.place)}"
+                android:textColor="@color/teal_200"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/longitud_Monitor"
+                tools:text="Azuay - Cuenca" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="54dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="28dp"
+                android:background="#F6F6F6"
+                app:layout_constraintEnd_toStartOf="@+id/time_Monitor"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
+
+            <TextView
+                android:id="@+id/time_Monitor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="monospace"
+                android:text="@{String.valueOf(EarthquakeDividido.time)}"
+                android:textColor="@color/purple_500"
+                android:textColorLink="@color/purple_700"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.398"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/place_Monitor"
+                tools:text="00/00/0000" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
 </layout>

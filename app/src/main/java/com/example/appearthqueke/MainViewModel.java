@@ -51,7 +51,7 @@ public class MainViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Log.d("MainViewModel", t.getMessage());
+                Log.d("Error de Datos", t.getMessage());
             }
         });
 

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appearthqueke.databinding.EqListItemsBinding;
-import com.example.appearthqueke.databinding.EqListItemsBindingLandImpl;
+
 
 // Alt + Enter - > Implemente metodos onCreate / onBing
 //Alt + Enter -> genere el contructor Diff
