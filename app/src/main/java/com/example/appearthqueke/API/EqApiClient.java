@@ -2,6 +2,7 @@ package com.example.appearthqueke.API;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.converter.moshi.MoshiConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.http.GET;
 
@@ -24,6 +25,7 @@ public class EqApiClient {
     private final Retrofit retrofit = new Retrofit.Builder() //Le hicimos metodo
             .baseUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/")
             .addConverterFactory(ScalarsConverterFactory.create())
+            //.addConverterFactory(MoshiConverterFactory.create())
             .build();
 
     public EqService getService(){

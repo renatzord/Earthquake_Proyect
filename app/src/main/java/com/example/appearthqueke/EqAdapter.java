@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appearthqueke.databinding.EqListItemsBinding;
+import com.example.appearthqueke.databinding.EqListItemsBindingLandImpl;
 
 // Alt + Enter - > Implemente metodos onCreate / onBing
 //Alt + Enter -> genere el contructor Diff
@@ -82,6 +83,7 @@ public class EqAdapter extends ListAdapter<Earthquake, EqAdapter.EqViewHolder> {
 
         private EqListItemsBinding binding;
 
+
         public EqViewHolder(@NonNull EqListItemsBinding binding) {
             super(binding.getRoot());
             //magnituView = itemView.findViewById(R.id.magnitud_txt);
@@ -93,6 +95,9 @@ public class EqAdapter extends ListAdapter<Earthquake, EqAdapter.EqViewHolder> {
 
             binding.magnitudTxt.setText(String.valueOf(earthquake.getMagnitud()));
             binding.pacleText.setText(earthquake.getPlace());
+
+           // binding.latitudeText.setText("Latitude: "+String.valueOf(earthquake.getLatitude()));
+           // binding.longitudeText.setText("Longitude: "+String.valueOf(earthquake.getLongitude()));
 
 
             binding.getRoot().setOnClickListener(view -> {

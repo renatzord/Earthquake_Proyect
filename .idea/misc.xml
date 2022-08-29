@@ -6,9 +6,12 @@
         <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/drawable-v24/ic_baseline_access_time_24.xml" value="0.1715" />
         <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/drawable-v24/ic_baseline_location_on_24.xml" value="0.1715" />
         <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/drawable-v24/ic_baseline_warning_24.xml" value="0.1715" />
+        <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout-land/activity_main.xml" value="0.24074074074074073" />
+        <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout-land/eq_list_items.xml" value="0.2261904761904762" />
         <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout/activity_main.xml" value="0.23104693140794225" />
         <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout/activity_monitor.xml" value="0.284375" />
-        <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout/eq_list_items.xml" value="0.25679347826086957" />
+        <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout/eq_list_items.xml" value="0.25" />
+        <entry key="..\:/Users/59399/AndroidStudioProjects/AppEarthqueke/app/src/main/res/layout/vista_horizontal.xml" value="0.26614583333333336" />
       </map>
     </option>
   </component>
